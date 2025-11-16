@@ -1,0 +1,7 @@
+timestamp,username,action,device_id
+2025-09-27 03:45:00,alex.doe,usb_connect,Personal_USB_0A5B
+2025-09-27 04:04:00,alex.doe,usb_disconnect,Personal_USB_0A5B
+2025-09-27 05:04:00,alex.doe,usb_connect,Personal_USB_0A5B
+2025-09-27 05:09:00,alex.doe,usb_disconnect,Personal_USB_0A5B
+2025-09-27 05:10:00,alex.doe,usb_connect,Personal_USB_0A5B
+2025-09-27 05:12:00,alex.doe,usb_disconnect,Personal_USB_0A5B
