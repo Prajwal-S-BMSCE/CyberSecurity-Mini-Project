@@ -1,0 +1,84 @@
+Here is a detailed prompt that summarizes our entire project, its advanced architecture, its current status, and the immediate next step.
+
+You can use this to continue our conversation in any new chat.
+
+Project Title:
+AI-Powered Insider Threat Detection and Response System using Behavioral Analysis & Digital Footprints (Advanced "100-Mark" Architecture)
+
+Core Objective:
+To upgrade a basic Python prototype (which used CSV files and a Streamlit dashboard) into a professional-grade, real-time cybersecurity pipeline. This new system will simulate a modern Security Operations Center (SOC) by integrating industry-standard tools to detect, analyze, and respond to insider threats.
+
+The "100-Mark" Target Architecture:
+Endpoint Sensor (Data Source):
+
+Tool: Sysmon (Microsoft System Monitor)
+
+Purpose: To replace our generate_logs.py script. Sysmon will capture real, high-fidelity endpoint logs (process creation, network connections, file access) from the local machine, providing genuine "digital footprints."
+
+Log Ingestion (The Pipeline):
+
+Tool: Elastic Agent (or Winlogbeat)
+
+Purpose: To act as the log shipper. This agent will read the real-time logs from Sysmon and securely send them to our central database.
+
+SIEM (Database & Dashboard):
+
+Tool: The Elastic Stack (ELK)
+
+Elasticsearch: Our new central log database. It replaces all the .csv files and is built to store and search billions of logs.
+
+Kibana: Our new professional analyst dashboard. It replaces the Streamlit app. We will use it to build visualizations, view alerts, and manage the system.
+
+AI Analysis & Threat Intelligence (The Brain):
+
+Tool: A custom Python Service
+
+Purpose: This service will continuously query Elasticsearch, run our AI models (Isolation Forest, Autoencoder), and enrich the data.
+
+Key Features:
+
+Explainable AI (XAI): Use the SHAP library to explain why a user was flagged.
+
+Threat Intel: Automatically map detected behaviors to the MITRE ATT&CK framework (e.g., T1052 - Exfiltration over USB).
+
+Automated Response (SOAR):
+
+Tool: A custom Flask API acting as a SOAR (Security Orchestration, Automation, and Response) engine.
+
+Purpose: When Kibana detects a high-risk alert (from our AI), it will trigger a webhook to this Flask API. The API will then automatically:
+
+Create an incident ticket in Trello.
+
+Send an alert to a Discord chat.
+
+Simulate locking the user's account.
+
+Forensic Enquiry (The Investigation):
+
+Tool: Velociraptor
+
+Purpose: After an account is locked, our SOAR playbook will simulate calling the Velociraptor API to perform a remote digital forensic investigation on the user's machine to gather legal proof (e.g., USB serial numbers, browser history).
+
+Current Project Status (Where We Are Now):
+We are in the initial and most critical setup phase of this advanced architecture (Step 3: The SIEM).
+
+Elasticsearch (Database): SUCCESS. It is downloaded, installed, and running successfully. The terminal shows a current_health="GREEN" status. This is perfect.
+
+Kibana (Dashboard): FAILED / STUCK. We are stuck trying to install and run Kibana. The initial installation was corrupted due in large part to a "Path too long" error. This corruption is causing a cascade of follow-on errors, including "Cannot find module," "Couldn't configure Elastic," and various browser connection errors.
+
+Immediate Next Step (What We Must Do):
+The only task right now is to fix the broken Kibana installation. We need to perform a clean re-installation of Kibana.
+
+The plan is:
+
+Stop any running (and failing) Kibana processes.
+
+Delete the corrupted kibana-9.2.0 folder.
+
+Move the original kibana-9.2.0.zip file to the C:\ drive (to prevent the "Path too long" error).
+
+Re-extract the zip file in this new, simple path.
+
+Run kibana.bat from the new, clean installation.
+
+Connect it to our already running Elasticsearch server using the Enrollment Token / Verification Code method.
